@@ -21,15 +21,18 @@ def get_db_connection():
     )
 
 
+#@app.get("/")
+#def read_root():
+#    return {
+#        "message": "FastAPI + PostgreSQL deployed by GitHub Actions",
+#        "hostname": socket.gethostname(),
+#        "environment": os.getenv("APP_ENV", "development"),
+#        "time": datetime.utcnow().isoformat(),
+#    }
+
 @app.get("/")
 def read_root():
-    return {
-        "message": "FastAPI + PostgreSQL deployed by GitHub Actions",
-        "hostname": socket.gethostname(),
-        "environment": os.getenv("APP_ENV", "development"),
-        "time": datetime.utcnow().isoformat(),
-    }
-
+    raise Exception("Simulated production error")
 
 @app.get("/health")
 def health_check():
