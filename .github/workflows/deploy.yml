@@ -56,6 +56,4 @@ jobs:
           script: |
             set -e
             cd /home/ubuntu/deploy/fastapi-compose-lab
-            docker compose pull app
-            docker compose up -d --force-recreate app
-            docker image prune -f
+            ./deploy.sh
