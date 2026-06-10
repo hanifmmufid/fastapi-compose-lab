@@ -42,7 +42,8 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
             cd /home/ubuntu/deploy/fastapi-compose-lab
             docker compose pull app
-            docker compose up -d
+            docker compose up -d --force-recreate app
             docker image prune -f
